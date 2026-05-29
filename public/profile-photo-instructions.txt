@@ -1,0 +1,11 @@
+Add your professional photo here:
+
+  File name: profile.jpg
+  Location:  public/profile.jpg  (same folder as this file)
+
+Tips:
+  - Use a clear headshot (shoulders up), neutral background
+  - Square or portrait orientation works best (e.g. 800×800 px)
+  - JPG or PNG (if PNG, update profileImage in src/data/site.ts to "/profile.png")
+
+Your photo will appear in the Hero (home) and About sections automatically.
