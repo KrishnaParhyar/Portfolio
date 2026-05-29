@@ -14,7 +14,7 @@ export function Footer() {
     <footer className="border-t border-slate-200 bg-white py-8 dark:border-slate-800 dark:bg-slate-950">
       <div className="section-container flex flex-col items-center justify-between gap-4 sm:flex-row">
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          © {year} {siteConfig.name}. Built with React & TypeScript.
+          © {year} {siteConfig.name}.
         </p>
         <div className="flex gap-4">
           {socialLinks.map((link) => {

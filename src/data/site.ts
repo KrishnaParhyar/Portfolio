@@ -8,7 +8,7 @@ import type {
   SkillCategory,
   SocialLink,
 } from '../types';
-import profileImage from './profileImage.jpeg';
+import profileImage from './myImage.png';
 
 export const siteConfig: SiteConfig = {
   name: 'Sri Krishna Devi',

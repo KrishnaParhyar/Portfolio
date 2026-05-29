@@ -19,10 +19,9 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
       <nav className="section-container flex h-16 items-center justify-between">
         <a
           href="#home"
-          className="text-lg font-bold text-slate-900 dark:text-white"
+          className="text-sm font-bold leading-tight text-slate-900 dark:text-white sm:text-base md:text-lg"
         >
-          {siteConfig.name.split(' ')[0]}
-          <span className="text-accent">.</span>
+          {siteConfig.name}
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -48,11 +47,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
             {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </button>
 
-          <Button
-            href="#contact"
-            size="sm"
-            className="hidden sm:inline-flex"
-          >
+          <Button href="#contact" size="sm" className="inline-flex shrink-0">
             Hire Me
           </Button>
 

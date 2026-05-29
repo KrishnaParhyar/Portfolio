@@ -1,14 +1,17 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = {
   variant?: Variant;
   size?: Size;
   children: ReactNode;
   href?: string;
-}
+} & (
+  | ({ href?: undefined } & ButtonHTMLAttributes<HTMLButtonElement>)
+  | ({ href: string } & AnchorHTMLAttributes<HTMLAnchorElement>)
+);
 
 const variants: Record<Variant, string> = {
   primary:
@@ -37,7 +40,7 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...props}>
         {children}
       </a>
     );
