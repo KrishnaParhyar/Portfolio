@@ -1,8 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Github, Linkedin, Mail, Send } from 'lucide-react';
 import { siteConfig, socialLinks } from '../../data/site';
 import type { ContactFormData, ContactFormErrors } from '../../types';
+import {
+  isContactEmailConfigured,
+  sendContactEmail,
+} from '../../utils/sendContactEmail';
 import { hasErrors, validateContactForm } from '../../utils/validation';
 import { Button } from '../ui/Button';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -22,9 +26,12 @@ const initialForm: ContactFormData = {
 export function Contact() {
   const [form, setForm] = useState<ContactFormData>(initialForm);
   const [errors, setErrors] = useState<ContactFormErrors>({});
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>(
-    'idle',
-  );
+  const [status, setStatus] = useState<
+    'idle' | 'sending' | 'success' | 'error' | 'not_configured'
+  >('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const emailReady = isContactEmailConfigured();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -32,6 +39,10 @@ export function Contact() {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
+    if (status !== 'idle' && status !== 'sending') {
+      setStatus('idle');
+      setErrorMessage('');
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -40,14 +51,30 @@ export function Contact() {
     setErrors(validationErrors);
     if (hasErrors(validationErrors)) return;
 
+    if (!emailReady) {
+      setStatus('not_configured');
+      setErrorMessage(
+        'Email service is not set up yet. Follow CONTACT-FORM-SETUP.md in the project folder.',
+      );
+      return;
+    }
+
     setStatus('sending');
+    setErrorMessage('');
 
-    // Replace with EmailJS / Formspree when configured
-    await new Promise((resolve) => setTimeout(resolve, 800));
-
-    setStatus('success');
-    setForm(initialForm);
-    setTimeout(() => setStatus('idle'), 4000);
+    try {
+      await sendContactEmail(form);
+      setStatus('success');
+      setForm(initialForm);
+      setTimeout(() => setStatus('idle'), 6000);
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : 'Could not send message. Please try again or email me directly.',
+      );
+    }
   };
 
   return (
@@ -66,8 +93,8 @@ export function Contact() {
           >
             <p className="text-slate-600 dark:text-slate-400">
               I&apos;m open to frontend roles, internships, and collaborations.
-              Reach out via email or the form — I typically respond within 48
-              hours.
+              Fill the form and I&apos;ll get your message by email — usually
+              within 48 hours.
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
@@ -77,7 +104,7 @@ export function Contact() {
               {siteConfig.email}
             </a>
 
-            <div className="mt-8 flex gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               {socialLinks.map((link) => {
                 const Icon = iconMap[link.icon];
                 return (
@@ -104,6 +131,22 @@ export function Contact() {
             className="glass-card space-y-5 p-6 sm:p-8"
             noValidate
           >
+            {!emailReady && (
+              <div
+                className="flex gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-100"
+                role="status"
+              >
+                <AlertCircle className="h-5 w-5 shrink-0" />
+                <p>
+                  Form emails are not active until you add EmailJS keys in{' '}
+                  <code className="rounded bg-amber-100 px-1 dark:bg-amber-900/60">
+                    .env
+                  </code>
+                  . See <strong>CONTACT-FORM-SETUP.md</strong> (about 10 min).
+                </p>
+              </div>
+            )}
+
             <div>
               <label
                 htmlFor="name"
@@ -189,8 +232,16 @@ export function Contact() {
             </Button>
 
             {status === 'success' && (
-              <p className="text-sm text-emerald-600 dark:text-emerald-400">
-                Message sent! (Demo mode — wire up EmailJS for production.)
+              <p className="flex items-start gap-2 text-sm text-emerald-600 dark:text-emerald-400">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+                Message sent! I&apos;ll reply to your email soon.
+              </p>
+            )}
+
+            {(status === 'error' || status === 'not_configured') && (
+              <p className="flex items-start gap-2 text-sm text-red-600 dark:text-red-400">
+                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                {errorMessage}
               </p>
             )}
           </motion.form>

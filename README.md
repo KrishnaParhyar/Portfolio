@@ -53,12 +53,9 @@ Add your CV PDF to **`public/resume.pdf`** (linked as `/resume.pdf`).
 
 Update **`index.html`** `<title>` and meta tags with your name.
 
-## Contact form (production)
+## Contact form (real emails)
 
-The form validates locally and shows a demo success message. For real emails:
-
-- [EmailJS](https://www.emailjs.com/) — add service ID / template in `Contact.tsx`
-- [Formspree](https://formspree.io/) — POST to your form endpoint
+Follow **`CONTACT-FORM-SETUP.md`** to connect [EmailJS](https://www.emailjs.com/) so Hire Me / Contact submissions arrive at your Gmail inbox. Copy `.env.example` → `.env`, add your three keys, restart `npm run dev`.
 
 ## Build & deploy
 
