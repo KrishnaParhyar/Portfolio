@@ -18,6 +18,11 @@ const frameSizes = {
   },
 };
 
+/** Home (portrait): light zoom, full head visible */
+const cropPortrait = 'scale-[1.08] object-cover object-[50%_3%]';
+/** About (circle): unchanged — was already good */
+const cropCircle = 'scale-[1.02] object-cover object-[50%_18%]';
+
 const circleSizes = {
   md: 'h-52 w-52 sm:h-60 sm:w-60',
   lg: 'h-64 w-64 sm:h-72 sm:w-72',
@@ -60,7 +65,7 @@ export function ProfileImage({
             <img
               src={siteConfig.profileImage}
               alt={`${siteConfig.name} — professional portrait`}
-              className="h-full w-full object-cover object-[50%_18%] scale-[1.02]"
+              className={`h-full w-full min-h-full min-w-full ${cropCircle}`}
             />
           </div>
         </div>
@@ -74,7 +79,7 @@ export function ProfileImage({
             <img
               src={siteConfig.profileImage}
               alt={`${siteConfig.name} — professional portrait`}
-              className="h-full w-full object-cover object-[50%_12%]"
+              className={`h-full w-full min-h-full min-w-full ${cropPortrait}`}
             />
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/25 via-transparent to-white/5"
