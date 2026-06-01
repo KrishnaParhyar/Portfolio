@@ -33,12 +33,6 @@ export function ProfileImage({
   size = 'lg',
   variant = 'portrait',
 }: ProfileImageProps) {
-  const initials = siteConfig.name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .slice(0, 3);
-
   const isCircle = variant === 'circle';
   const frame = frameSizes[size];
 

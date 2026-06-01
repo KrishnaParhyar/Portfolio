@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 import type { Project } from '../../types';
 
 interface ProjectCardProps {
@@ -8,8 +8,6 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
-  const hasLiveDemo = project.liveUrl !== '#';
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 32 }}
@@ -18,37 +16,49 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="group glass-card overflow-hidden"
     >
-      <div className="relative aspect-video overflow-hidden">
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-medium text-slate-900"
-          >
-            <Github className="h-3.5 w-3.5" />
-            Code
-          </a>
-          {hasLiveDemo && (
+      {project.image ? (
+        <div className="relative aspect-video overflow-hidden">
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 sm:opacity-100 group-hover:opacity-100">
             <a
-              href={project.liveUrl}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-xs font-medium text-white"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-medium text-slate-900 shadow-md hover:bg-white"
             >
-              <ExternalLink className="h-3.5 w-3.5" />
-              Live Demo
+              <Github className="h-3.5 w-3.5" />
+              View on GitHub
             </a>
-          )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-accent/20 via-violet-500/10 to-transparent flex flex-col items-center justify-center p-6 border-b border-slate-200/60 dark:border-slate-800/60">
+          <div className="text-center">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
+              <Github className="h-6 w-6 text-accent" />
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent">Source Code on GitHub</p>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 sm:opacity-100 group-hover:opacity-100">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-medium text-slate-900 shadow-md hover:bg-white"
+            >
+              <Github className="h-3.5 w-3.5" />
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      )}
 
       <div className="p-6">
         <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
@@ -102,20 +112,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-accent hover:underline"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
           >
-            GitHub
+            <Github className="h-4 w-4" />
+            View on GitHub
           </a>
-          {hasLiveDemo && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-accent hover:underline"
-            >
-              Live Demo
-            </a>
-          )}
         </div>
       </div>
     </motion.article>

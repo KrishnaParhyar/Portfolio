@@ -25,7 +25,7 @@ export interface Project {
   features: string[];
   githubUrl: string;
   liveUrl: string;
-  image: string;
+  image?: string;
 }
 
 export interface Experience {

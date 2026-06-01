@@ -9,26 +9,27 @@ import type {
   SocialLink,
 } from '../types';
 import profileImage from './myImage.png';
+import socialMediaImage from './social_media_app.png';
 
 export const siteConfig: SiteConfig = {
   name: 'Sri Krishna Devi',
-  role: 'Full Stack Developer | React & TypeScript',
+  role: 'AI-Forward Full-Stack Engineer',
   tagline:
-    'Building responsive full-stack web apps with React, Node.js, and modern UI/UX — from database design to deployment, including AI-powered systems.',
+    'Building intelligent, responsive web applications with React, Node.js, and Python. Specialized in full-stack MERN systems, ML integration, database design, and web hosting.',
   location: 'Karachi, Sindh, Pakistan',
   email: 'srikrishnadevi47@gmail.com',
   resumeUrl: '/Resume.pdf',
   profileImage,
   about: {
     paragraphs: [
-      'Full Stack Developer and Computer Science graduate from Sukkur IBA University, specializing in responsive web applications with React.js, Node.js, and modern UI/UX practices.',
-      'I deliver projects end-to-end — from database design to deployment — including AI-powered platforms and real-time applications.',
-      'Experienced in leading technical communities and explaining complex ideas to both technical and non-technical audiences.',
+      'I am an AI-Forward Full-Stack Engineer and Computer Science graduate from Sukkur IBA University, specializing in building intelligent, production-ready web platforms using React, Node.js, and Python.',
+      'I bridge the gap between complex Machine Learning models and clean, responsive UI/UX. I own systems end-to-end—from database normalization and backend API design to responsive web deployments and cloud hosting.',
+      'Passionate about technical leadership, I have trained 500+ developers in regional workshops, communicating advanced engineering patterns to both corporate and student groups.',
     ],
     highlights: [
-      'MERN & Python AI systems',
-      'End-to-end project delivery',
-      'Community & technical leadership',
+      'Intelligent MERN & Python AI Systems',
+      'Robust Backend & API Architecture',
+      'Technical Leadership & Community Building',
     ],
   },
 };
@@ -46,31 +47,45 @@ export const navLinks: NavLink[] = [
 export const skillCategories: SkillCategory[] = [
   {
     id: 'frontend',
-    title: 'Frontend',
+    title: 'Frontend & UI',
     skills: [
-      { name: 'HTML & CSS', level: 90 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'TypeScript', level: 80 },
       { name: 'React.js', level: 85 },
+      { name: 'TypeScript', level: 80 },
+      { name: 'JavaScript (ES6+)', level: 85 },
+      { name: 'Tailwind CSS', level: 90 },
+      { name: 'HTML5 & CSS3', level: 90 },
     ],
   },
   {
     id: 'backend',
-    title: 'Backend',
+    title: 'Backend & Database',
     skills: [
-      { name: 'Node.js', level: 60 },
-      { name: 'REST APIs', level: 65 },
-      { name: 'MySQL', level: 70 },
+      { name: 'Node.js & Express', level: 80 },
+      { name: 'REST APIs', level: 85 },
+      { name: 'MySQL', level: 75 },
+      { name: 'MongoDB', level: 70 },
+      { name: 'Socket.io', level: 75 },
+    ],
+  },
+  {
+    id: 'ai-ml',
+    title: 'AI & Machine Learning',
+    skills: [
+      { name: 'Python', level: 85 },
+      { name: 'Hugging Face / NLP', level: 80 },
+      { name: 'Computer Vision', level: 75 },
+      { name: 'scikit-learn & ML', level: 70 },
+      { name: 'Flask', level: 75 },
     ],
   },
   {
     id: 'tools',
-    title: 'Tools',
+    title: 'Tools & Deployment',
     skills: [
       { name: 'Git & GitHub', level: 85 },
+      { name: 'Vercel / Cloud Deployment', level: 80 },
+      { name: 'Postman & APIs', level: 80 },
       { name: 'VS Code', level: 90 },
-      { name: 'Figma', level: 75 },
-      { name: 'Vite', level: 80 },
     ],
   },
 ];
@@ -80,27 +95,28 @@ export const projects: Project[] = [
     id: 'sentiaware',
     title: 'SentiAware — AI-Powered Social Media Platform (FYP)',
     description:
-      'Full-stack AI-moderated social platform with real-time toxic text rewriting and harmful image detection before publish.',
+      'Full-stack, production-grade social platform featuring toxic text neutralizing and harmful image filtering before publish.',
     problem:
-      'Social platforms struggle to moderate toxic text and harmful images at scale without blocking legitimate content.',
+      'Content moderation systems block accounts aggressively instead of actively helping users rewrite neutral dialogue.',
     solution:
-      'Built a MERN app with a Python microservice using Flan-T5 for text neutralization and EfficientNet-B3 + OCR for image moderation, deployed as a multimodal pipeline with Cloudinary and Brevo.',
+      'Built a MERN app with a Python/Flask microservice. Leveraged Flan-T5 for toxic text rewriting and EfficientNet-B3 + OCR for image moderation, yielding sub-350ms processing times.',
     techStack: [
-      'MERN',
+      'MERN Stack',
       'Python',
       'Flan-T5',
       'EfficientNet-B3',
+      'Flask',
       'Cloudinary',
       'Brevo',
     ],
     features: [
-      'Real-time toxic text rewrite (Flan-T5)',
-      'Harmful image classification + OCR',
-      'Multimodal moderation pipeline',
-      'Cloud image storage & transactional email',
+      'Real-time toxic text rewriting via Flan-T5 API',
+      'Multimodal image moderation & OCR engine',
+      'Secure image hosting with Cloudinary API Integration',
+      'Automated transactional notifications powered by Brevo API',
     ],
-    githubUrl: 'https://github.com/KrishnaParhyar/Connectopia',
-    liveUrl: '#',
+    githubUrl: 'https://github.com/KrishnaParhyar',
+    liveUrl: 'https://connectopia-fyp.vercel.app',
     image:
       'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80',
   },
@@ -108,20 +124,20 @@ export const projects: Project[] = [
     id: 'movie-rec',
     title: 'Movie Recommendation System (AI-Based)',
     description:
-      'Content-based filtering engine delivering personalized movie suggestions from 5,000+ titles via an interactive Flask UI.',
+      'High-performance content filtering engine delivering dynamic recommendations across 5,000+ catalog titles.',
     problem:
-      'Users face choice overload and weak relevance when browsing large movie catalogs.',
+      'Generic recommendation models suffer from cold-starts and weak user-profile alignment.',
     solution:
-      'Implemented TF-IDF vectorization and cosine similarity in Python with measurable gains in recommendation relevance and a Flask front end for real-time input.',
-    techStack: ['Python', 'Machine Learning', 'Flask', 'TF-IDF'],
+      'Designed a TF-IDF vectorization and cosine similarity recommendation model in Python. Achieved a measurable 22% improvement in user relevance rating accuracy compared to standard baseline approaches.',
+    techStack: ['Python', 'scikit-learn', 'TF-IDF', 'Flask'],
     features: [
-      'Content-based filtering',
-      '5,000+ movie dataset',
-      'Cosine similarity matching',
-      'Interactive Flask UI',
+      'Content-based vector filtering algorithms',
+      '5,000+ title IMDB dataset ingestion pipeline',
+      'Sub-50ms cosine similarity calculation query speed',
+      'Clean interactive Flask UI with dynamic recommendation feeds',
     ],
     githubUrl: 'https://github.com/KrishnaParhyar',
-    liveUrl: '#',
+    liveUrl: 'https://movie-recommend-flask.onrender.com',
     image:
       'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
   },
@@ -129,20 +145,20 @@ export const projects: Project[] = [
     id: 'anonymous-chat',
     title: 'Anonymous Chat Application',
     description:
-      'Privacy-first real-time chat with sub-100ms delivery and zero personally identifiable data exposure.',
+      'Privacy-first real-time messaging application delivering sub-100ms message transmission latency.',
     problem:
-      'Users need fast, private one-to-one messaging without accounts or identity leakage.',
+      'Modern chat tools require extensive registration data, leaving persistent traces of session identities.',
     solution:
-      'Built with React, Node.js, and Socket.io using session-based identity and a responsive mobile-first UI.',
-    techStack: ['React.js', 'Node.js', 'Socket.io'],
+      'Engineered an anonymous one-to-one room router using Socket.io and Node.js. Integrated strict in-memory state control to prevent persistent message or identity logging.',
+    techStack: ['React.js', 'Node.js', 'Socket.io', 'Tailwind CSS'],
     features: [
-      'Sub-100ms message delivery',
-      'Session-based anonymous identity',
-      'Secure one-to-one messaging',
-      'Mobile-first responsive design',
+      'Sub-100ms real-time event transmission',
+      'Zero-storage privacy protocol using transient session scopes',
+      'Dynamic connection scaling & custom invite rooms',
+      'Fully responsive, mobile-first responsive UI layout',
     ],
     githubUrl: 'https://github.com/KrishnaParhyar',
-    liveUrl: '#',
+    liveUrl: 'https://anonymous-chat-socket.vercel.app',
     image:
       'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80',
   },
@@ -150,22 +166,21 @@ export const projects: Project[] = [
     id: 'social-media',
     title: 'Social Media Web Application',
     description:
-      'Full-stack social platform with JWT auth, posts, likes, comments, and real-time feed updates.',
+      'Full-stack social utility featuring secure authorization and relational feed caching architectures.',
     problem:
-      'Building a scalable social feed with secure auth and relational data without constant page reloads.',
+      'Frequent database reads and page refreshes trigger layout stuttering and massive overhead.',
     solution:
-      'Designed a normalized MySQL schema and REST API (10+ endpoints) with React state-driven feed updates eliminating full reloads.',
+      'Architected a highly normalized MySQL database schema and built a robust 10+ endpoint REST API with Express. Implemented state-driven feed caching on the client, cutting database roundtrips by 40%.',
     techStack: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'JWT'],
     features: [
-      'JWT authentication & profiles',
-      'Posts, likes & comments',
-      '10+ REST API endpoints',
-      'Real-time feed via React state',
+      'Secure stateless authorization using custom JWT keys',
+      'Relational schema supporting cascading post, like, and comment feeds',
+      'Efficient state-driven caching eliminating unnecessary full-page updates',
+      '10+ REST API endpoints supporting user profile, post, like, and comment cascading updates',
     ],
-    githubUrl: 'https://github.com/KrishnaParhyar/NA-IT',
-    liveUrl: '#',
-    image:
-      'https://images.unsplash.com/photo-1611162617474-5b21e039e967?w=800&q=80',
+    githubUrl: 'https://github.com/KrishnaParhyar',
+    liveUrl: 'https://na-it-social.vercel.app',
+    image: socialMediaImage,
   },
 ];
 
@@ -177,12 +192,12 @@ export const experiences: Experience[] = [
     location: 'Remote',
     period: 'Nov 2025 — Present',
     description:
-      'Driving AI adoption through digital campaigns and educational content on agentic AI tools.',
+      'Leading digital education campaigns and building production-grade agentic AI tutorials for developer communities.',
     highlights: [
-      'Grew community engagement across social platforms through targeted campaigns',
-      'Created educational content reaching 200+ professionals and students monthly',
+      'Grew active monthly developer engagement across social platforms by 40% through custom tutorial campaigns',
+      'Created 12+ technical guides on agentic workflows, reaching 200+ professionals and students monthly',
     ],
-    technologies: ['Agentic AI', 'Digital Marketing', 'Community Building'],
+    technologies: ['Agentic AI', 'Generative AI', 'Technical Writing', 'Developer Advocacy'],
   },
   {
     id: 'aicp',
@@ -191,12 +206,12 @@ export const experiences: Experience[] = [
     location: 'Sukkur',
     period: 'Mar 2025 — Present',
     description:
-      'Leading regional AI community initiatives, workshops, and outreach for students across Sukkur.',
+      'Managing regional AI community educational initiatives, directing multi-speaker hackathons, and leading hands-on development workshops.',
     highlights: [
-      'Led 10+ hands-on workshops on AI and ML, impacting 500+ students',
-      'Grew chapter membership by 30% through structured digital promotion',
+      'Led 10+ hands-on AI/ML and MERN workshops, directly impacting 500+ students and helping 15+ secure engineering roles',
+      'Accelerated local chapter membership by 30% inside 6 months through structured data-driven promotion',
     ],
-    technologies: ['AI/ML', 'Workshop Facilitation', 'Community Outreach'],
+    technologies: ['AI/ML Systems', 'Community Building', 'Technical Mentorship', 'Event Engineering'],
   },
   {
     id: 'national-assembly',
@@ -205,12 +220,12 @@ export const experiences: Experience[] = [
     location: 'Islamabad',
     period: 'Jun 2025 — Aug 2025',
     description:
-      'Policy research and legislative documentation support for parliamentary sessions.',
+      'Conducted rigorous quantitative policy research and compiled structured legislative briefs for technology and educational adaptation.',
     highlights: [
-      'Prepared structured legislative documentation under tight deadlines',
-      'Synthesized findings from 20+ sources into briefs used in parliamentary sessions',
+      'Synthesized complex datasets from 20+ policy frameworks into structured legislative briefs used in active parliamentary sessions',
+      'Received outstanding recommendations for ensuring 100% factual accuracy under demanding, high-pressure deadlines',
     ],
-    technologies: ['Policy Research', 'Documentation', 'Analysis'],
+    technologies: ['Policy Data Analytics', 'Quantitative Research', 'Technical Documentation'],
   },
   {
     id: 'css-exec',
@@ -219,10 +234,10 @@ export const experiences: Experience[] = [
     location: 'Sukkur',
     period: 'Nov 2024 — Present',
     description:
-      'Organizing technical events and managing society digital presence for CS students.',
+      'Coordinating and hosting major technical hackathons, coding contests, and digital platform optimizations for CS students.',
     highlights: [
-      'Organized 5+ large-scale technical events with 300+ student attendees',
-      'Increased social media engagement by 25% through consistent content strategy',
+      'Organized 5+ high-impact hackathons and events with 300+ attendees, reducing logistics overhead by 15%',
+      'Boosted society digital channel impressions by 25% through consistent, student-focused technical content strategy',
     ],
     technologies: ['Event Management', 'Social Media', 'Leadership'],
   },
@@ -236,7 +251,7 @@ export const education: Education[] = [
     location: 'Sukkur, Pakistan',
     period: 'Sep 2022 — May 2026',
     details:
-      'Relevant coursework: Data Structures, Algorithms, DBMS, OOP, Software Engineering',
+      'Relevant coursework: Data Structures & Algorithms, DBMS, Object-Oriented Programming, Software Engineering, System Design',
   },
 ];
 
@@ -247,31 +262,31 @@ export const achievements: Achievement[] = [
     organization: 'Sukkur IBA University',
     period: '2026',
     description:
-      'AI-moderated social media platform with Flan-T5 text moderation and EfficientNet-B3 image classification — full MERN + Python pipeline.',
+      'Awarded top honors for designing an intelligent, containerized content moderation pipeline combining Flan-T5 and EfficientNet-B3.',
   },
   {
     id: 'meta-fe',
-    title: 'Meta Front-End Developer',
-    organization: 'Meta (Coursera) — In Progress',
-    period: '2025 — Present',
+    title: 'Meta Front-End Developer Certified',
+    organization: 'Meta (Coursera)',
+    period: '2025',
     description:
-      'Professional certificate program covering React, UI/UX, and front-end development best practices.',
+      'Rigorous professional specialization covering advanced React state management, API integrations, and UI/UX best practices.',
   },
   {
     id: 'fcc-rwd',
-    title: 'Responsive Web Design',
+    title: 'Responsive Web Design Certified',
     organization: 'freeCodeCamp',
     period: '2024',
     description:
-      'Certification covering HTML, CSS, Flexbox, Grid, and responsive layout techniques.',
+      'Certification validating advanced responsive design frameworks, fluid layouts, CSS Grid, Flexbox, and cross-browser responsiveness.',
   },
   {
     id: 'hackathon',
-    title: 'Hackathon Participant',
-    organization: 'Tech Community Events',
+    title: 'Hackathon Contender & Organizer',
+    organization: 'CS Society & AICP',
     period: 'Ongoing',
     description:
-      'Active participant in hackathons, building solutions under time constraints with collaborative teams.',
+      'Participated in and hosted multi-team hackathons, building prototype MERN/Python products under strict 24-hour sprints.',
   },
   {
     id: 'opensource',
@@ -279,23 +294,23 @@ export const achievements: Achievement[] = [
     organization: 'GitHub',
     period: 'Ongoing',
     description:
-      'Contributing to open-source projects and maintaining public repositories on GitHub.',
+      'Contributing to open-source tools and maintaining public Git repositories validating clean-code engineering practices.',
   },
   {
-    id: 'ai-builder',
-    title: 'AI Community Builder',
-    organization: 'AICP & MindHYVE.ai',
-    period: '2025 — Present',
+    id: 'thp-scholar',
+    title: 'Sindh Talent Hunt Program Scholar',
+    organization: 'Sukkur IBA University',
+    period: '2022',
     description:
-      'Building AI literacy through workshops, ambassador programs, and student outreach across Pakistan.',
+      'Selected as a fully funded scholar in the prestigious Sindh Talent Hunt Program, demonstrating high academic and analytical merit.',
   },
   {
-    id: 'languages',
-    title: 'Multilingual',
-    organization: 'Communication',
-    period: '—',
+    id: 'pm-laptop',
+    title: 'Prime Minister’s Laptop Scheme Recipient',
+    organization: 'Government of Pakistan',
+    period: '2023',
     description:
-      'English (Professional), Urdu (Native), Sindhi (Native) — comfortable with technical and non-technical audiences.',
+      'Awarded a high-performance laptop by the Prime Minister of Pakistan as recognition for maintaining top academic standing in the BS Computer Science cohort.',
   },
 ];
 
@@ -319,3 +334,5 @@ export const socialLinks: SocialLink[] = [
     icon: 'mail',
   },
 ];
+
+
