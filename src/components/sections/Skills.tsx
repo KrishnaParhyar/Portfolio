@@ -13,7 +13,7 @@ function SkillBar({ name, level }: { name: string; level: number }) {
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
         <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-accent to-violet-500"
+          className="h-full rounded-full bg-gradient-to-r from-slate-500 to-slate-700 dark:from-slate-400 dark:to-slate-300"
           initial={{ width: 0 }}
           whileInView={{ width: `${level}%` }}
           viewport={{ once: true }}

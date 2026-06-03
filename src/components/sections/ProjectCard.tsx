@@ -38,7 +38,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </div>
       ) : (
-        <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-accent/20 via-violet-500/10 to-transparent flex flex-col items-center justify-center p-6 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-slate-200/50 via-slate-100/30 to-transparent dark:from-slate-800/40 dark:via-slate-900/20 dark:to-transparent flex flex-col items-center justify-center p-6 border-b border-slate-200/60 dark:border-slate-800/60">
           <div className="text-center">
             <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10">
               <Github className="h-6 w-6 text-accent" />

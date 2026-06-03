@@ -45,7 +45,7 @@ export function ProfileImage({
     >
       {/* Ambient glow */}
       <div
-        className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br from-accent/30 via-violet-500/20 to-transparent blur-2xl ${
+        className={`absolute inset-0 rounded-[2rem] bg-gradient-to-br from-slate-400/20 via-slate-500/10 to-transparent blur-2xl dark:from-slate-600/10 dark:via-slate-800/5 ${
           isCircle ? 'rounded-full' : ''
         }`}
         aria-hidden
@@ -53,7 +53,7 @@ export function ProfileImage({
 
       {isCircle ? (
         <div
-          className={`relative ${circleSizes[size]} rounded-full bg-gradient-to-br from-accent via-violet-500 to-indigo-600 p-[3px] shadow-2xl shadow-accent/25`}
+          className={`relative ${circleSizes[size]} rounded-full bg-gradient-to-br from-slate-300 via-slate-400 to-slate-500 dark:from-slate-700 dark:via-slate-600 dark:to-slate-800 p-[3px] shadow-2xl shadow-slate-500/10 dark:shadow-black/40`}
         >
           <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-900">
             <img
@@ -65,7 +65,7 @@ export function ProfileImage({
         </div>
       ) : (
         <div
-          className={`relative ${frame.outer} rounded-[1.75rem] bg-gradient-to-br from-accent via-violet-500 to-indigo-700 p-[3px] shadow-2xl shadow-slate-900/15 dark:shadow-black/40`}
+          className={`relative ${frame.outer} rounded-[1.75rem] bg-gradient-to-br from-slate-300 via-slate-400 to-slate-500 dark:from-slate-700 dark:via-slate-600 dark:to-slate-800 p-[3px] shadow-2xl shadow-slate-900/15 dark:shadow-black/40`}
         >
           <div
             className={`absolute ${frame.inner} overflow-hidden rounded-[1.4rem] bg-slate-200 dark:bg-slate-800`}

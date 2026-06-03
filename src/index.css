@@ -13,12 +13,12 @@
   }
 
   body {
-    @apply bg-accent text-slate-100 antialiased transition-colors duration-300;
+    @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300;
   }
 
   .dark body,
   html.dark body {
-    @apply bg-accent-dark text-slate-100;
+    @apply bg-slate-950 text-slate-100;
   }
 
   ::selection {

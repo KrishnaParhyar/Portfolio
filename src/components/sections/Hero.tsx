@@ -14,8 +14,8 @@ export function Hero() {
       className="relative flex min-h-screen items-center pt-16"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
-        <div className="absolute -right-20 bottom-20 h-96 w-96 rounded-full bg-violet-500/10 blur-3xl" />
+        <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-slate-300/20 dark:bg-slate-700/10 blur-3xl" />
+        <div className="absolute -right-20 bottom-20 h-96 w-96 rounded-full bg-slate-400/10 blur-3xl" />
       </div>
 
       <div className="section-container relative py-16 lg:py-20">
@@ -25,7 +25,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-4 text-sm font-medium uppercase tracking-widest text-accent"
+              className="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400"
             >
               Welcome to my portfolio
             </motion.p>
@@ -37,7 +37,7 @@ export function Hero() {
               className="max-w-3xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl"
             >
               Hi, I&apos;m{' '}
-              <span className="bg-gradient-to-r from-accent to-violet-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent">
                 {siteConfig.name}
               </span>
             </motion.h1>

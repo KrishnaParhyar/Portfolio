@@ -10,9 +10,9 @@ export default {
       },
       colors: {
         accent: {
-          DEFAULT: '#10b981',
-          light: '#6ee7b7',
-          dark: '#059669',
+          DEFAULT: '#4b5563',
+          light: '#9ca3af',
+          dark: '#1f2937',
         },
       },
       animation: {

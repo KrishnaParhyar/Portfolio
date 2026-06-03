@@ -15,7 +15,7 @@ type ButtonProps = {
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-accent text-white hover:bg-accent-dark shadow-lg shadow-accent/25',
+    'bg-slate-900 text-white hover:bg-slate-800 shadow-md shadow-slate-900/10 dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200 dark:shadow-none',
   secondary:
     'border border-slate-300 bg-white text-slate-800 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800',
   ghost:
