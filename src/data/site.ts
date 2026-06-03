@@ -304,14 +304,6 @@ export const achievements: Achievement[] = [
     description:
       'Selected as a fully funded scholar in the prestigious Sindh Talent Hunt Program, demonstrating high academic and analytical merit.',
   },
-  {
-    id: 'pm-laptop',
-    title: 'Prime Minister’s Laptop Scheme Recipient',
-    organization: 'Government of Pakistan',
-    period: '2023',
-    description:
-      'Awarded a high-performance laptop by the Prime Minister of Pakistan as recognition for maintaining top academic standing in the BS Computer Science cohort.',
-  },
 ];
 
 export const socialLinks: SocialLink[] = [
